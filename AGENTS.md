@@ -1,11 +1,11 @@
 # Better Save Soul Rebalance — Working Rules
 
-Read `666drjekyll666-cloud/DevRules` before substantive work. `ENGINEERING_RULES.md`, `CI_POLICY.md`, `GIT_WORKFLOW.md`, and `PROJECT_BOOTSTRAP.md` apply here; this file adds project-specific constraints.
+Read `NikichMods/DevRules` before substantive work. `ENGINEERING_RULES.md`, `CI_POLICY.md`, `GIT_WORKFLOW.md`, and `PROJECT_BOOTSTRAP.md` apply here; this file adds project-specific constraints.
 
 ## Project identity
 
 - Public mod: **Better Save Soul Rebalance**
-- Repository: `666drjekyll666-cloud/BetterSaveSoulRebalance`
+- Repository: `NikichMods/BetterSaveSoulRebalance`
 - Project / assembly / DLL: `BetterSaveSoulRebalance`
 - Game: Graveyard Keeper 1.407
 - Required DLC: Better Save Soul

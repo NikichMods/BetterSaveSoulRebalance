@@ -4,7 +4,7 @@ The public repository starts a clean Git history and does not import the legacy 
 
 ## Legacy production candidate
 
-- Legacy private repository: `666drjekyll666-cloud/SoulDLCRebalance-legacy-private`
+- Legacy private repository: `NikichMods/SoulDLCRebalance-legacy-private`
 - Legacy handed version: `1.0.0`
 - Exact runtime source: `ea5e62a7894e5959ce706c4497452c934159a6c2`
 - CI run: `34508205848`

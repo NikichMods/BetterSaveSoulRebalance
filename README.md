@@ -25,7 +25,7 @@ The mod does **not** reduce the grave-quality values of Better Save Soul decorat
 
 ## Download
 
-Stable builds are available from [GitHub Releases](https://github.com/666drjekyll666-cloud/BetterSaveSoulRebalance/releases).
+Stable builds are available from [GitHub Releases](https://github.com/NikichMods/BetterSaveSoulRebalance/releases).
 
 ## Installation
 
