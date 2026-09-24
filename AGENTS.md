@@ -62,8 +62,8 @@ Keep migration/provenance and acceptance details in engineering documents such a
 
 ## CI
 
-- Hosted CI is a candidate/handoff gate, not a per-commit service.
-- The verified managed-code toolchain builds on `ubuntu-latest`; keep it unless a concrete dependency requires Windows.
+- Hosted CI may run automatically on active development/candidate code changes when compile/test feedback or a reproducible artifact is useful; avoid duplicate or no-signal runs rather than suppressing CI for historical minute scarcity.
+- The verified managed-code toolchain builds on `ubuntu-latest`; keep it while it remains the best fit for the project, not because of public-runner minute price.
 - Documentation-only changes do not justify hosted CI.
 - Candidate artifacts use short retention.
 
