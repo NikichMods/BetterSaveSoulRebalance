@@ -180,4 +180,12 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   Release target `v1.2.1` is the tested source, not a later documentation commit.
 - Promotion changes documentation/release metadata and release identity validation
   only. Runtime source remains byte-equivalent to the tested source. No rebuild.
-- Publication result will be recorded after the release workflow completes.
+- Publication complete: workflow run `39256134036`, job `118071773415`, success.
+  GitHub Release `v1.2.1`, ID `417293619`, targets the exact tested source.
+  Raw asset `BetterSaveSoulRebalance-1.2.1.dll`, ID `656284666`, 38400 bytes;
+  GitHub asset SHA-256 matches the accepted DLL digest above. Release is public,
+  not draft/prerelease. Main contains accepted source plus reconciled docs and
+  release metadata. Earlier 1.1.1 remains available as a historical release.
+- Reusable resource-address/continuation facts were promoted to
+  `GraveyardKeeperResearch/docs/DIALOGUE_QUEST_AND_FLOWCANVAS.md`,
+  commit `c9ccbf1`; mod-specific balance/acceptance stays here.
