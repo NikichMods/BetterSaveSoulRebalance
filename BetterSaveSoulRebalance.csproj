@@ -4,7 +4,7 @@
     <LangVersion>7.3</LangVersion>
     <AssemblyName>BetterSaveSoulRebalance</AssemblyName>
     <RootNamespace>SoulDLCRebalance</RootNamespace>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
@@ -17,6 +17,9 @@
   <ItemGroup>
     <Compile Include="src/SoulDLCRebalancePlugin.cs" />
     <Compile Include="src/ReflectionUtil.cs" />
+    <Compile Include="src/EuricPaymentPlan.cs" />
+    <Compile Include="src/NativeContinuation.cs" />
+    <Compile Include="src/EuricRewards.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" />

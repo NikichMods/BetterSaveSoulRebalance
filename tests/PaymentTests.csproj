@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="PaymentTests.cs" />
+    <Compile Include="../src/EuricPaymentPlan.cs" Link="EuricPaymentPlan.cs" />
+    <Compile Include="../src/NativeContinuation.cs" Link="NativeContinuation.cs" />
+  </ItemGroup>
+</Project>

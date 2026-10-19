@@ -52,9 +52,25 @@ The player's current Gratitude is exposed through `player.gratitude_points`.
 
 `GlobalCraftControlGUI.is_global_control_active` distinguishes the Remote Craft UI/path. When it is active, the manual local-Gratitude patches do not add a second completion charge; the craft definition's combined `gratitude_points_craft_cost` remains authoritative for Remote Craft.
 
+## Euric rewards (1.2.0 candidate)
+
+See `EURIC_REWARD_DESIGN.md` for exact host identities, authored graph/quest anchors
+and evidence status. After native FlowGraph initialization/binding, native
+FlowOutput.Append adds a typed callback without replacing the original continuation
+or changing graph topology. The initial reward changes only a verified constant
+Value input; subsequent payments execute a constructed native Flow_AddMoney action.
+
+Normal Item parameters serialize `bssr_euric_paid_v1` through the existing save
+owner. Bits 0/1/2/3 record room/first/second/third payments. Mask zero never starts
+later payouts. Native wait tasks support earned-stage catch-up without creating
+KnownNPC state. Unsupported input/port shapes fail closed at the reward feature;
+unclaimed initial inputs are restored to 100 and diagnostics identify the stop.
+
 ## Persistence and performance
 
-- The mod does not write custom save data.
+- The decoration package does not write custom save data. The reward candidate
+  stores only its payment ledger in ordinary native player parameters; it does
+  not edit save files directly or rewrite pre-existing quest/money state.
 - Balance mutations are one-time/event-bound rather than per-frame work.
 - Local Gratitude display allocates only while affected recipe rows are rendered; it does not mutate persistent/shared craft definitions.
 - Reflection is used against verified game types/members so the production assembly does not need copied game binaries or implementation stubs.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 (candidate)
+
+- Replaces Euric's early 100-silver room reward with four installments: 10 for the room, then 20, 30 and 50 after his three treatments (110 total).
+- Tracks paid installments through normal saved player parameters and catches up already-earned treatments when the room reward is claimed late.
+- Leaves existing full-paid saves, decoration balance, organ mechanics and native quest progression unchanged.
+
 ## 1.1.1
 
 - Initial public release.

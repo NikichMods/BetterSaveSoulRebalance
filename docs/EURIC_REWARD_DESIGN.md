@@ -88,14 +88,19 @@ introduces unnecessary topology/lifecycle work. A global money hook would couple
 unrelated rewards. Use the existing bound `FlowOutput.pointer` delegate extension
 point instead: a single `FlowGraph.OnGraphStarted` postfix recognizes only three
 exact graph names, validates the exact native money/task/text/port shape, and
-decorates the relevant continuations. Reuse the host's `Flow_AddMoney` action for
+appends to the relevant continuations with the native `FlowOutput.Append` method.
+Reopening the mechanism checkpoint after inspecting that method eliminated the
+unnecessary original-delegate wrapper: the host combines callbacks itself, and
+the original continuation runs first. Reuse the host's `Flow_AddMoney` action for
 later payouts; only the original reward's constant input changes from 100 to 10.
 
 Final writers: `FlowGraph.OnGraphStarted` binds native connections before returning;
 the postfix attaches after this binding. `Flow_Talk` invokes `On Finished` from its
 actual speech completion callback. Treatment anchors are the Euric-spoken final
 lines `souls_s_s16_1_10`, `souls_s_s25_14`, `souls_s_s34_9`. Preserve their original
-continuations exactly. Idempotence checks recognize owned wrappers on restarts.
+continuations exactly. Idempotence checks recognize owned callbacks in the native
+multicast delegate on restarts. The original room-payment dialogue keeps its
+native permanent phrase-blacklist guard; no parallel quest lifetime is invented.
 
 Preflight all three native resource graphs through `CustomFlowScript.GetGraph`
 (the native FlowCanvas resource loader), ports and monetary helpers before reducing
@@ -119,3 +124,18 @@ static validation against exact native graph projections, actual native paramete
 serialization checks and clean candidate build. Installed loader/port binding,
 native payout presentation and full game reload are separate player-runtime gates;
 compilation or pure fixtures are not claimed as their acceptance.
+
+## Pre-candidate checks
+
+- Local actual-reference Release-style Roslyn compile: no warnings/errors.
+- Payment-policy/continuation suite: 469 assertions pass, including all valid paid
+  masks, legacy non-enrollment, earned-stage catch-up, duplicate suppression,
+  invalid save records, typed value-argument preservation, native-first callback
+  ordering, multicast identity and preservation of original exceptions.
+- Actual 1.407 assembly check constructs the native Flow_AddMoney node, gathers
+  real ports, projects the Value input, appends the production-generated typed
+  callback with native FlowOutput.Append and exercises that native delegate.
+- Native SmartSerializer Item binary roundtrips retain ledger masks 1/3/7/15 and
+  an unrelated money parameter. This proves the ledger's serialization layer,
+  not a full installed-game save/reload.
+- No actual save was modified. No new DLL has been installed at this stage.

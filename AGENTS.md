@@ -40,6 +40,7 @@ Use:
 - Do not modify persistent save data unless explicitly approved.
 - Do not add configuration UI unless configurable balance is explicitly requested.
 - Local Soul Gratitude is a currency surcharge, not a physical inventory item.
+- Approved Euric installment bookkeeping uses the namespaced native player parameter `bssr_euric_paid_v1`; no direct save-file edits, retrospective deductions or quest-state migration. Preserve legacy full-paid saves and ordinary native serialization.
 - Manual-crafting Gratitude is charged only on successful completion; Remote Craft uses the game's own combined/proportional Gratitude path and must not receive the manual charge as well.
 
 ## Version and release workflow

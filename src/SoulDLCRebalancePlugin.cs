@@ -14,7 +14,7 @@ namespace SoulDLCRebalance
     {
         public const string PluginGuid = "nikich.graveyardkeeper.souldlcrebalance";
         public const string PluginName = "Better Save Soul Rebalance";
-        public const string PluginVersion = "1.1.1";
+        public const string PluginVersion = "1.2.0";
 
         private static ManualLogSource Log;
         private static object Balance;
@@ -88,6 +88,7 @@ namespace SoulDLCRebalance
             {
                 InstallPatches();
                 ApplyAll();
+                EuricRewards.Install(s => Log.LogInfo(s), s => Log.LogError(s));
                 Log.LogInfo(PluginName + " " + PluginVersion + " ready.");
             }
             catch (Exception ex) { Log.LogError("Initialization failed: " + ex); }

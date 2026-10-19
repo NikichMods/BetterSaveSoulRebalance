@@ -6,7 +6,23 @@ Production BepInEx GUID: `nikich.graveyardkeeper.souldlcrebalance`
 
 ## Scope
 
-This production line implements the approved Better Save Soul progression/economy package. It does not change Better Save Soul grave-quality values, vanilla grave technologies, save data, Soul Gratitude capacity inflation from stored items, or the rejected cross-branch Theology prerequisite prototype.
+This production line implements the approved Better Save Soul progression/economy package. It does not change Better Save Soul grave-quality values, vanilla grave technologies, existing quest progress, Soul Gratitude capacity inflation from stored items, or the rejected cross-branch Theology prerequisite prototype. The 1.2.0 candidate adds ordinary saved installment bookkeeping as specified below.
+
+## Euric reward installments (approved 1.2.0 candidate)
+
+Replace the original 100-silver room-repair payout with 10 silver at claim, then
+20, 30 and 50 silver at completion of Euric's first, second and third treatments.
+Total: 110 silver, including the approved 10-silver deferred-payment bonus. All
+four payments precede the village restoration epilogue.
+
+The ordinary one-shot room-reward dialogue enrolls a save in the installment plan.
+One native saved player parameter tracks paid stages. A save that already claimed
+the original 100 silver and has no plan record receives no new installments; no
+money is deducted. Late room claims catch up earned treatments using the existing
+native wait tasks, and paid stages are never paid twice. Detailed owner and
+readiness evidence: `EURIC_REWARD_DESIGN.md`.
+
+This does not change any approved decoration values/costs or add organ gates.
 
 ## Spiritualism technology prices
 

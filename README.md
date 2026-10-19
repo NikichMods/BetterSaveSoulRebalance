@@ -6,6 +6,8 @@ Better Save Soul Rebalance integrates the DLC more naturally into the base-game 
 
 ## What it changes
 
+- Splits Euric's early room-repair reward across four milestones: 10 silver for the room, then 20, 30 and 50 silver after his three treatments (110 silver in total).
+- Preserves old saves that already received the original full reward; later installments are not added on top of it.
 - Rebalances selected **Spiritualism technology costs** with additional Soul Gratitude requirements.
 - Adds substantial **blue-point costs** to the high-tier Better Save Soul grave-decoration technologies.
 - Reworks the material costs of the DLC's strongest stone and marble grave decorations toward later-game components.
@@ -15,7 +17,7 @@ Better Save Soul Rebalance integrates the DLC more naturally into the base-game 
 - Charges that local Gratitude only when a manual craft actually completes; cancelling an unfinished craft does not spend it.
 - Preserves the game's normal Remote Craft Control behavior while folding the added local Gratitude surcharge into the remote cost.
 
-The mod does **not** reduce the grave-quality values of Better Save Soul decorations and does not rewrite save data.
+The mod does **not** reduce the grave-quality values of Better Save Soul decorations. Installment progress uses one ordinary saved player parameter; existing money and quest progress are not rewritten.
 
 ## Requirements
 
