@@ -2,6 +2,47 @@
 
 Every handed DLL is immutable and tied to exact committed source plus build artifact identity.
 
+## 1.2.0 — Euric reward installments (runtime acceptance pending)
+
+- Date: 2026-10-19. Development branch: `dev/1.2.0`.
+- Player-approved schedule: 10 silver for claiming the room-repair reward, then
+  20/30/50 after the three treatments; 110 total. Decoration balance is explicitly
+  considered resolved and remains unchanged. No new organ restrictions.
+- Exact candidate/build source: `e5446fadee285f51223701c87c0086fc41148d3f`.
+- Frozen local candidate ref: `candidate/1.2.0` at that same source.
+- Clean CI: run `39238441980`, job `118013130921`, Release build success with
+  0 compiler warnings/errors; all 469 payment-policy/continuation assertions pass.
+- CI artifact: `BetterSaveSoulRebalance-1.2.0`, ID `12179558612`;
+  archive digest `sha256:fdf41d067870e3c2764128d688648de7bd3ceca5d3646f0afbef1f82a9d046f9`.
+- Exact raw DLL: `BetterSaveSoulRebalance-1.2.0.dll`, 37888 bytes;
+  SHA-256 `3ff0e71898deeb5394889cf368902cc296e057d0dc16c45fcb5464915ff24e76`;
+  assembly/file version `1.2.0.0`; product version includes the exact source SHA.
+- The downloaded CI archive and DLL hashes match the workflow output. No local
+  rebuild substitutes for this handed candidate.
+- Local checks against exact CI bytes and actual 1.407 assemblies pass: native
+  monetary input projection/action construction, native FlowOutput.Append with
+  the production-generated typed callback, and native Item parameter binary
+  roundtrips for paid masks 1/3/7/15 while retaining an unrelated money value.
+- Static checks confirm all three speech-completion anchors and downstream wait
+  tasks against the exact native resource data. The existing technology/decoration
+  table source is byte-equivalent to the accepted main baseline.
+- Read-only native save census found both pre-claim and legacy full-paid saves;
+  actual saves were not changed. This establishes available test populations,
+  not payout or full game reload acceptance.
+- Installed with the game closed as canonical `BetterSaveSoulRebalance.dll`;
+  installed digest matches the CI DLL. The previous accepted 1.1.1 payload and
+  preinstall support log are preserved outside the plugin directory. Exactly one
+  active payload for this plugin; unrelated mods/configuration/saves unchanged.
+- Requested runtime return:
+  1. Confirm startup reaches `BSSR_EURIC_READY` without a reward-feature failure.
+  2. On a pre-claim save, receive the room payment and confirm +10 silver.
+  3. Save/reload and confirm no repeat reward; completed treatments should pay
+     +20/+30/+50 once through the ordinary native path.
+  4. Legacy full-paid saves receive no new treatment payments. Late room claims
+     catch up already-earned stages without paying any stage twice.
+- Status: **installed test candidate; runtime/player acceptance pending**.
+  `main`, `baseline/1.1.1-accepted`, and stable Release `v1.1.1` remain unchanged.
+
 ## 1.0.0 — legacy handed balance candidate
 
 - Legacy repository: `SoulDLCRebalance-legacy-private`.

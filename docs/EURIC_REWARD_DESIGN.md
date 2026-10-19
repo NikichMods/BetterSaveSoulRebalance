@@ -138,4 +138,11 @@ compilation or pure fixtures are not claimed as their acceptance.
 - Native SmartSerializer Item binary roundtrips retain ledger masks 1/3/7/15 and
   an unrelated money parameter. This proves the ledger's serialization layer,
   not a full installed-game save/reload.
-- No actual save was modified. No new DLL has been installed at this stage.
+- No actual save was modified during these checks.
+
+## Current candidate
+
+Exact 1.2.0 CI bytes are installed for player testing; `TEST_BUILD_LOG.md` owns
+source/build/hash/install identity and remaining runtime acceptance. The normal
+startup, all four actual payouts and full game save/reload remain unaccepted.
+Stable main/Release stay at accepted 1.1.1 until the player accepts the candidate.
