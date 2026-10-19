@@ -39,6 +39,20 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   reward initialization/payout is claimed by installation.
 - Status: installed immutable test candidate; runtime/player acceptance pending.
   Stable main and Release remain 1.1.1.
+- Runtime evidence, 2026-10-19: startup succeeds with `BSSR_EURIC_READY`.
+  The player reports receiving 10 silver for the room. The previous Unity player
+  log survives the restart and directly records
+  `BSSR_EURIC_PAYMENT stage=room silver=10`. Payment-log snapshot SHA-256:
+  `33607fee6652484b5f5809b34645686a1df44c9b288098843794dce2627e25f6`.
+  The restarted BepInEx log also reaches READY without reward disable/payment
+  messages; snapshot SHA-256:
+  `65652560632d3c385a564ff44d9f53cda020188418b6b1183a0b0b3f6f9e226b`.
+- Reload persistence is **not yet verified**. The player reports no repeat credit
+  after restart, but the last saved payload inspected read-only still precedes
+  room completion: room claim unconsumed, paid ledger zero, one room-repair flag
+  zero. The previous-session log orders that save before the reward conversation
+  and has no later save. Request a save after the 10-silver payment, then reload
+  that exact post-payment save. No save mutation or new binary is required.
 
 ## 1.2.0 — Euric reward installments (runtime test failed)
 
