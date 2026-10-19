@@ -47,12 +47,24 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   The restarted BepInEx log also reaches READY without reward disable/payment
   messages; snapshot SHA-256:
   `65652560632d3c385a564ff44d9f53cda020188418b6b1183a0b0b3f6f9e226b`.
-- Reload persistence is **not yet verified**. The player reports no repeat credit
+- Initial reload attempt (superseded by the successful check below): the player reported no repeat credit
   after restart, but the last saved payload inspected read-only still precedes
   room completion: room claim unconsumed, paid ledger zero, one room-repair flag
   zero. The previous-session log orders that save before the reward conversation
   and has no later save. Request a save after the 10-silver payment, then reload
   that exact post-payment save. No save mutation or new binary is required.
+- Corrected save/reload check, 2026-10-19: **passed**. The support log orders
+  one room payment, a save, a new native load cycle and another save, with no
+  subsequent payment or reward-disable event. Read-only native deserialization
+  confirms paid ledger=1, room reward consumed and money=39.62002 in both the
+  current payload and its first backup (the earlier pre-payment payload held
+  29.62002). The player confirms no extra credit after loading. This proves room
+  enrollment and ordinary save/reload retention; the observed load is within the
+  running process, not a separately evidenced full process restart.
+- Successful-check log SHA-256:
+  `3ec0f95b9c01cbb3a738805ebcf4743e1b11c284230a90a07ea14ffb3b465e94`.
+  Remaining installed checks: treatment payments +20/+30/+50, their duplicate
+  suppression and preservation of legacy full-paid saves. No new build required.
 
 ## 1.2.0 — Euric reward installments (runtime test failed)
 
