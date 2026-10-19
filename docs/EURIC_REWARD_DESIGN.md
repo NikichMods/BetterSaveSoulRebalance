@@ -167,12 +167,15 @@ against the native resource table, repeat existing native contract/payment check
 then test real installed initialization and the room payout. Static path checks
 do not establish installed graph deserialization or payout acceptance.
 
-## Current candidate
+## Accepted release and verification scope
 
 The 1.2.0 candidate failed installed resource preflight and is immutable.
-The 1.2.1 development line corrects resource lookup; `TEST_BUILD_LOG.md` owns
-source/build/hash/install identity and remaining runtime acceptance. The normal
+Release 1.2.1 corrects resource lookup; `TEST_BUILD_LOG.md` owns
+source/build/hash/install identity and deferred runtime checks. The normal
 startup and first 10-silver payment are now verified in the installed game, as is
 ordinary post-payment save/reload with retained enrollment and no duplicate.
-The three treatment payouts and legacy full-paid save behavior remain unaccepted.
-Stable main/Release stay at accepted 1.1.1 until the player accepts the candidate.
+On 2026-10-19 the player explicitly accepted this exact artifact provisionally
+and requested stable GitHub publication, deferring the three treatment payouts
+and legacy full-paid save checks to ordinary play. These checks remain unverified;
+release acceptance does not change their evidence status. No runtime source or
+binary rebuild is part of promotion. Future defects require a new numbered build.

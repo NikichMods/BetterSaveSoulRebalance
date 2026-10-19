@@ -2,7 +2,7 @@
 
 Every handed DLL is immutable and tied to exact committed source plus build artifact identity.
 
-## 1.2.1 — correct Euric resource address (runtime acceptance pending)
+## 1.2.1 — Euric installments (provisionally accepted for publication)
 
 - Date: 2026-10-19. Development branch: `dev/1.2.1`.
 - Fix: distinguish native resource lookup addresses from live graph names. Load
@@ -37,8 +37,11 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   support log are preserved outside the loader directory. One project payload;
   saves and unrelated mods unchanged. No game launch or successful installed
   reward initialization/payout is claimed by installation.
-- Status: installed immutable test candidate; runtime/player acceptance pending.
-  Stable main and Release remain 1.1.1.
+- Status: **provisionally accepted for stable publication by explicit player
+  instruction, 2026-10-19**. The exact tested DLL is promoted without rebuilding.
+  Acceptance covers the observed startup, room payment and post-payment reload;
+  treatment and legacy full-paid runtime checks are deferred to ordinary play.
+  This version-specific exception is recorded in AGENTS.md.
 - Runtime evidence, 2026-10-19: startup succeeds with `BSSR_EURIC_READY`.
   The player reports receiving 10 silver for the room. The previous Unity player
   log survives the restart and directly records
@@ -63,7 +66,7 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   running process, not a separately evidenced full process restart.
 - Successful-check log SHA-256:
   `3ec0f95b9c01cbb3a738805ebcf4743e1b11c284230a90a07ea14ffb3b465e94`.
-  Remaining installed checks: treatment payments +20/+30/+50, their duplicate
+  Deferred installed checks: treatment payments +20/+30/+50, their duplicate
   suppression and preservation of legacy full-paid saves. No new build required.
 
 ## 1.2.0 — Euric reward installments (runtime test failed)
@@ -164,3 +167,17 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
 - Release publication: GitHub Actions run `34646071830` downloaded artifact `BetterSaveSoulRebalance-1.1.1`, verified the raw DLL SHA-256 above, and published GitHub Release `v1.1.1` targeting exact source `d684b783408d23de212ccc1d91ac51add72edf93`.
 - Release: ID `387325673`; raw DLL asset ID `557984815`; published asset digest `sha256:c17de0a66e590d93863ff47defd937ffefe82cf47bb2721749177025e5545cee`.
 - Status: **accepted stable / published**.
+
+## 1.2.1 promotion identity
+
+- Player explicitly requested provisional acceptance, documentation reconciliation,
+  promotion to main and a GitHub Release, with follow-up fixes if ordinary play
+  reveals defects. Deferred checks above are not represented as passed.
+- Accepted baseline: `baseline/1.2.1-accepted` at exact tested runtime source
+  `cddf45d1bff188dd489434f4744e2a618de008fa`.
+- Release manifest selects CI run `39241280286` and artifact
+  `BetterSaveSoulRebalance-1.2.1`; publication verifies the exact tested DLL hash.
+  Release target `v1.2.1` is the tested source, not a later documentation commit.
+- Promotion changes documentation/release metadata and release identity validation
+  only. Runtime source remains byte-equivalent to the tested source. No rebuild.
+- Publication result will be recorded after the release workflow completes.

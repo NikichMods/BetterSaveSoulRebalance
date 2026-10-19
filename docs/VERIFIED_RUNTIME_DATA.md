@@ -12,8 +12,8 @@ This document records runtime facts the production mod is allowed to depend on. 
   `flowcanvas/`, path IDs 150708 and 150709. Resource addresses and graph names
   are distinct. `SmartResourceHelperPool.GetObject` caches even null lookups.
   Evidence: actual 1.407 ResourceManager table and native loader IL, 2026-10-19;
-  1.2.0 runtime log demonstrates the missing wrong-path lookup. Installed success
-  of the corrected path remains a player-runtime acceptance check.
+  1.2.0 runtime log demonstrates the missing wrong-path lookup. Installed startup and room-payment success of the corrected path were
+  subsequently confirmed in the 1.2.1 player test.
 
 - Better Save Soul availability is exposed through `DLCEngine.IsDLCSoulsAvailable()`.
 - Runtime balance data is available from `GameBalance.me`.
@@ -63,7 +63,7 @@ The player's current Gratitude is exposed through `player.gratitude_points`.
 
 `GlobalCraftControlGUI.is_global_control_active` distinguishes the Remote Craft UI/path. When it is active, the manual local-Gratitude patches do not add a second completion charge; the craft definition's combined `gratitude_points_craft_cost` remains authoritative for Remote Craft.
 
-## Euric rewards (1.2.0 candidate)
+## Euric rewards (1.2.1 release)
 
 See `EURIC_REWARD_DESIGN.md` for exact host identities, authored graph/quest anchors
 and evidence status. After native FlowGraph initialization/binding, native
@@ -79,9 +79,18 @@ unclaimed initial inputs are restored to 100 and diagnostics identify the stop.
 
 ## Persistence and performance
 
-- The decoration package does not write custom save data. The reward candidate
+- The decoration package does not write custom save data. The reward feature
   stores only its payment ledger in ordinary native player parameters; it does
   not edit save files directly or rewrite pre-existing quest/money state.
 - Balance mutations are one-time/event-bound rather than per-frame work.
 - Local Gratitude display allocates only while affected recipe rows are rendered; it does not mutate persistent/shared craft definitions.
 - Reflection is used against verified game types/members so the production assembly does not need copied game binaries or implementation stubs.
+
+## Installed verification and release scope — 2026-10-19
+
+The installed 1.2.1 reaches BSSR_EURIC_READY, executes the room reward as 10 silver,
+and persists paid mask=1 through ordinary save/reload with no duplicate credit.
+The player authorized provisional acceptance/publication with later +20/+30/+50
+payouts and legacy full-paid save checks deferred to normal play. Those paths
+have static/native-contract and deterministic policy evidence, not completed
+player-runtime verification. Exact artifact and evidence: TEST_BUILD_LOG.md.

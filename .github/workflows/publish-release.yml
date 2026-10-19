@@ -39,6 +39,19 @@ jobs:
             fi
             echo "$key=$value" >> "$GITHUB_OUTPUT"
           done
+          python3 - <<'PY'
+          import json, re, xml.etree.ElementTree as ET
+          manifest = json.load(open('release/accepted.json'))
+          version = ET.parse('BetterSaveSoulRebalance.csproj').findtext('.//Version')
+          plugin = re.search(r'PluginVersion = "([^"]+)"', open('src/SoulDLCRebalancePlugin.cs').read()).group(1)
+          assert manifest['version'] == version == plugin
+          assert manifest['tag'] == 'v' + version
+          assert manifest['artifact_name'] == 'BetterSaveSoulRebalance-' + version
+          assert manifest['asset_name'] == 'BetterSaveSoulRebalance-' + version + '.dll'
+          assert re.fullmatch(r'[0-9a-f]{40}', manifest['source_sha'])
+          assert re.fullmatch(r'[0-9a-f]{64}', manifest['sha256'])
+          print('Release version identity verified:', version)
+          PY
 
       - name: Download accepted Actions artifact
         uses: actions/download-artifact@v4

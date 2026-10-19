@@ -1,13 +1,15 @@
-# Better Save Soul Rebalance 1.1.1
+# Better Save Soul Rebalance 1.2.1
 
-Initial public release of **Better Save Soul Rebalance** for Graveyard Keeper 1.407 and the Better Save Soul DLC.
+Euric now pays his room-repair reward across the Better Save Soul story: **10 silver** for the room, then **20, 30 and 50 silver** after his three treatments. The total is **110 silver**, including a 10-silver bonus for receiving the money gradually.
 
-- Rebalances selected Spiritualism technology costs with Soul Gratitude and blue-point progression.
-- Reworks the strongest Better Save Soul grave-decoration material costs toward later-game components.
-- Adds recurring Soul Gratitude costs and selected Sin Shard costs to high-tier grave decorations.
-- Displays local Soul Gratitude directly in manual-crafting requirements and charges it only when a craft completes.
-- Preserves Remote Craft Control's normal proportional Gratitude behavior with the rebalance surcharge included.
-- Leaves Better Save Soul grave-quality values and save data unchanged.
-- Includes the crafting-UI compatibility fix validated in the accepted 1.1.1 player test.
+- Saves that already received the original full gold keep it and receive no extra installments.
+- The existing technology and grave-decoration rebalance is unchanged.
+- Original quest rewards, including Remote Craft Control, remain in place.
 
-Requirements: Graveyard Keeper 1.407, Better Save Soul DLC, BepInEx 5.x.
+**Installation:** close the game, copy the downloaded DLL into `BepInEx/plugins/` as `BetterSaveSoulRebalance.dll`, replacing the previous copy. Keep only one copy of this mod.
+
+**Requirements:** Graveyard Keeper 1.407, Better Save Soul DLC, BepInEx 5.x.
+
+**Verification:** startup, the first 10-silver payment and post-payment save/reload without duplicate credit have been checked in play. The three treatment payouts and old full-paid save behavior await extended play verification.
+
+[Source code (MPL-2.0)](https://github.com/NikichMods/BetterSaveSoulRebalance/tree/cddf45d1bff188dd489434f4744e2a618de008fa).

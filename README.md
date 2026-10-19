@@ -27,14 +27,20 @@ The mod does **not** reduce the grave-quality values of Better Save Soul decorat
 
 ## Download
 
-Stable builds are available from [GitHub Releases](https://github.com/NikichMods/BetterSaveSoulRebalance/releases).
+The current release is **1.2.1**, available from [GitHub Releases](https://github.com/NikichMods/BetterSaveSoulRebalance/releases/latest).
 
 ## Installation
 
 1. Download the DLL from GitHub Releases.
-2. Copy it into `Graveyard Keeper/BepInEx/plugins/`.
+2. With the game closed, copy it into `Graveyard Keeper/BepInEx/plugins/` as `BetterSaveSoulRebalance.dll`, replacing the previous copy. Keep only one copy of this mod in the plugins folder.
 3. Restart the game.
 
 ## Compatibility
 
 The mod changes selected Better Save Soul technology prices and grave-craft definitions. Other mods that alter the same records may conflict or cause the affected target to be left unchanged by the safety checks.
+
+The reward changes also use Euric's native dialogue/treatment scripts. Saves that
+already received his original full gold keep it and do not join the installment
+plan. In 1.2.1, startup, the 10-silver room reward and saving/loading after that
+reward have been checked in play; the three treatment payouts and old full-paid
+save behavior still await extended play verification.

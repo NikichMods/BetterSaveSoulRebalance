@@ -80,6 +80,13 @@ Before promoting a numbered build to stable state:
 - promote accepted state to `main` without rebuilding the numbered DLL;
 - publish the exact hash-verified tested DLL in GitHub Releases as `vX.Y.Z`.
 
+Version-specific acceptance: on 2026-10-19 the player explicitly authorized
+provisional acceptance and stable publication of the tested 1.2.1 artifact after
+successful startup, room payment and post-payment save/reload checks. The three
+treatment payouts and legacy full-paid runtime checks are deferred to ordinary
+play. This is a deliberate 1.2.1 acceptance-scope exception, not evidence that
+those deferred checks passed or a general relaxation of future acceptance gates.
+
 ## Shared Graveyard Keeper research
 
 Cross-project Graveyard Keeper 1.407 host/runtime research is centralized in `NikichMods/GraveyardKeeperResearch`.

@@ -1,9 +1,13 @@
 # Changelog
 
-## 1.2.1 (candidate)
+## 1.2.1 — 2026-10-19
 
+- Splits Euric's early 100-silver room reward into 10 silver for the room, then 20, 30 and 50 after his three treatments (110 total).
+- Saves installment progress through normal player parameters and leaves existing full-paid saves unchanged.
 - Fixes Euric's installment initialization by loading his dialogue graph from its actual resource subfolder.
 - Reports disabled installments explicitly instead of reporting full readiness after a reward initialization failure.
+- Preserves the existing decoration rebalance, organ mechanics and native quest progression.
+- In-game checks cover startup, the first 10-silver payment and save/reload without duplicate credit. Later treatment payouts remain subject to extended play verification.
 
 ## 1.2.0 (failed candidate)
 
