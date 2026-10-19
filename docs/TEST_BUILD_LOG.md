@@ -2,7 +2,7 @@
 
 Every handed DLL is immutable and tied to exact committed source plus build artifact identity.
 
-## 1.2.1 — correct Euric resource address (candidate preparation)
+## 1.2.1 — correct Euric resource address (runtime acceptance pending)
 
 - Date: 2026-10-19. Development branch: `dev/1.2.1`.
 - Fix: distinguish native resource lookup addresses from live graph names. Load
@@ -23,8 +23,22 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
   from an unclaimed save, save/reload with no repeat payment, then the existing
   +20/+30/+50 treatment and legacy-save checks. A save that claimed the full gold
   under 1.2.0 stays legacy/full-paid; it cannot test positive installments.
-- Status: preparing separately numbered immutable candidate; installed behavior
-  remains unaccepted. Stable main and Release remain 1.1.1.
+- Exact source: `cddf45d1bff188dd489434f4744e2a618de008fa`; frozen local
+  `candidate/1.2.1` at that source. CI run `39241280286`, job `118022431857`:
+  successful Release build, 0 compiler warnings/errors, all 469 assertions pass.
+- Artifact `BetterSaveSoulRebalance-1.2.1`, ID `12180938449`; ZIP digest
+  `sha256:a1fc2b8ec5668b73674042715b74e7b7e18867d4701adbb8995c245bf37eb1fd`.
+- Raw DLL `BetterSaveSoulRebalance-1.2.1.dll`, 38400 bytes, SHA-256
+  `36c33ff433852f57727dbace4538a1ed89fb37180d381c9472837585e89f34a2`.
+  Assembly/file version `1.2.1.0`; product version contains the exact source SHA.
+- Downloaded ZIP and raw DLL match CI digests. Actual-native contract checks
+  also pass against the exact CI DLL. Installed with the game closed under the
+  canonical DLL filename; installed hash matches. Previous 1.2.0 payload and failed
+  support log are preserved outside the loader directory. One project payload;
+  saves and unrelated mods unchanged. No game launch or successful installed
+  reward initialization/payout is claimed by installation.
+- Status: installed immutable test candidate; runtime/player acceptance pending.
+  Stable main and Release remain 1.1.1.
 
 ## 1.2.0 — Euric reward installments (runtime test failed)
 
