@@ -2,7 +2,31 @@
 
 Every handed DLL is immutable and tied to exact committed source plus build artifact identity.
 
-## 1.2.0 — Euric reward installments (runtime acceptance pending)
+## 1.2.1 — correct Euric resource address (candidate preparation)
+
+- Date: 2026-10-19. Development branch: `dev/1.2.1`.
+- Fix: distinguish native resource lookup addresses from live graph names. Load
+  Euric through `CustomFlowScript.GetGraph("WGO scripts/npc_euric")`; retain
+  the existing `npc_euric` live-name hook. The two treatment-zone paths are
+  unchanged. The native ResourceManager table proves all three addresses resolve
+  to the exact previously audited assets. The old NPC address is absent.
+- The initializer returns success/failure; the plugin no longer prints full
+  readiness when installments are disabled. Payout policy, continuation hooks,
+  ledger, decoration tables and native quest behavior are unchanged.
+- Local Roslyn actual-reference compilation succeeds with warnings as errors.
+  All 469 policy/continuation assertions pass. Actual 1.407 money-port/Append
+  checks and four native Item ledger serialization roundtrips pass. Native
+  graph-anchor/downstream-task checks pass; decoration tables are unchanged.
+- Private failed-1.2.0 support-log snapshot SHA-256:
+  `9b37b02dda135edbe98952547082d6fb3fb83d731bb834faaea9e6d8aa5a55a7`.
+- Requested runtime check: startup `BSSR_EURIC_READY`, room payment +10 silver
+  from an unclaimed save, save/reload with no repeat payment, then the existing
+  +20/+30/+50 treatment and legacy-save checks. A save that claimed the full gold
+  under 1.2.0 stays legacy/full-paid; it cannot test positive installments.
+- Status: preparing separately numbered immutable candidate; installed behavior
+  remains unaccepted. Stable main and Release remain 1.1.1.
+
+## 1.2.0 — Euric reward installments (runtime test failed)
 
 - Date: 2026-10-19. Development branch: `dev/1.2.0`.
 - Player-approved schedule: 10 silver for claiming the room-repair reward, then
@@ -40,7 +64,8 @@ Every handed DLL is immutable and tied to exact committed source plus build arti
      +20/+30/+50 once through the ordinary native path.
   4. Legacy full-paid saves receive no new treatment payments. Late room claims
      catch up already-earned stages without paying any stage twice.
-- Status: **installed test candidate; runtime/player acceptance pending**.
+- Runtime result, 2026-10-19: **failed**. The installed 1.2.0 loads, but its startup preflight reports `Error loading resource "FlowCanvas/npc_euric"`, then `BSSR_EURIC_DISABLED initialization` / `Missing native graph: npc_euric`. The ordinary room-completion conversation executes later; the player reports receiving the stock 100 silver. Read-only inspection of the resulting save confirms the native room-claim blacklist is set and the installment ledger remains zero. The generic plugin `ready` message does not establish that the reward feature is enabled. Follow-up native ResourceManager inspection proves the requested path is absent: the NPC graph resides in the WGO scripts subfolder. This closes the initial timing hypothesis; see the 1.2.1 correction above.
+- Status: **runtime test failed; immutable candidate, not accepted**.
   `main`, `baseline/1.1.1-accepted`, and stable Release `v1.1.1` remain unchanged.
 
 ## 1.0.0 — legacy handed balance candidate

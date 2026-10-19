@@ -140,9 +140,37 @@ compilation or pure fixtures are not claimed as their acceptance.
   not a full installed-game save/reload.
 - No actual save was modified during these checks.
 
+## Resource lookup correction — READY for 1.2.1, 2026-10-19
+
+The 1.2.0 installed test fails at resource preflight, before any reward hook is
+activated. Direct inspection of the installed `globalgamemanagers` ResourceManager
+establishes the actual entries:
+
+- `flowcanvas/wgo scripts/npc_euric` -> resource path ID 150524;
+- `flowcanvas/on_enter_ev_s_s25_gd_zone` -> 150708;
+- `flowcanvas/on_enter_ev_s_s34_gd_zone` -> 150709.
+
+`CustomFlowScript.GetGraph(string)` prepends `FlowCanvas/` to its argument. It
+does not search subfolders. Passing `npc_euric` therefore requests a nonexistent
+entry; the correct argument is `WGO scripts/npc_euric`. The graph's own name stays
+`npc_euric`, so resource lookup paths and live graph matching must be separate.
+The native resource pool caches null lookup results; retrying the wrong key or
+adding a delayed initializer cannot fix the missing path. This closes the timing
+hypothesis from the first failure report.
+
+The existing input/continuation mechanism remains justified: this is a local
+resource-address defect, not evidence that graph surgery or global money hooks
+are needed. Change only the preflight path and make feature initialization return
+its actual status to the plugin's summary log. Preserve payout amounts, graph
+names, hook timing, ledger and failure containment. Verify all three addresses
+against the native resource table, repeat existing native contract/payment checks,
+then test real installed initialization and the room payout. Static path checks
+do not establish installed graph deserialization or payout acceptance.
+
 ## Current candidate
 
-Exact 1.2.0 CI bytes are installed for player testing; `TEST_BUILD_LOG.md` owns
+The 1.2.0 candidate failed installed resource preflight and is immutable.
+The 1.2.1 development line corrects resource lookup; `TEST_BUILD_LOG.md` owns
 source/build/hash/install identity and remaining runtime acceptance. The normal
 startup, all four actual payouts and full game save/reload remain unaccepted.
 Stable main/Release stay at accepted 1.1.1 until the player accepts the candidate.

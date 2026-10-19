@@ -1,6 +1,11 @@
 # Changelog
 
-## 1.2.0 (candidate)
+## 1.2.1 (candidate)
+
+- Fixes Euric's installment initialization by loading his dialogue graph from its actual resource subfolder.
+- Reports disabled installments explicitly instead of reporting full readiness after a reward initialization failure.
+
+## 1.2.0 (failed candidate)
 
 - Replaces Euric's early 100-silver room reward with four installments: 10 for the room, then 20, 30 and 50 after his three treatments (110 total).
 - Tracks paid installments through normal saved player parameters and catches up already-earned treatments when the room reward is claimed late.

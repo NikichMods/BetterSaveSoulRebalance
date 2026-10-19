@@ -14,7 +14,7 @@ namespace SoulDLCRebalance
     {
         public const string PluginGuid = "nikich.graveyardkeeper.souldlcrebalance";
         public const string PluginName = "Better Save Soul Rebalance";
-        public const string PluginVersion = "1.2.0";
+        public const string PluginVersion = "1.2.1";
 
         private static ManualLogSource Log;
         private static object Balance;
@@ -88,8 +88,9 @@ namespace SoulDLCRebalance
             {
                 InstallPatches();
                 ApplyAll();
-                EuricRewards.Install(s => Log.LogInfo(s), s => Log.LogError(s));
-                Log.LogInfo(PluginName + " " + PluginVersion + " ready.");
+                bool rewardsReady = EuricRewards.Install(s => Log.LogInfo(s), s => Log.LogError(s));
+                if (rewardsReady) Log.LogInfo(PluginName + " " + PluginVersion + " ready.");
+                else Log.LogWarning(PluginName + " " + PluginVersion + " decoration balance active; Euric installments disabled.");
             }
             catch (Exception ex) { Log.LogError("Initialization failed: " + ex); }
         }

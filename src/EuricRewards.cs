@@ -10,6 +10,8 @@ namespace SoulDLCRebalance
     internal static class EuricRewards
     {
         private static readonly string[] Graphs = { "npc_euric", "on_enter_ev_s_s25_gd_zone", "on_enter_ev_s_s34_gd_zone" };
+        // GetGraph prepends FlowCanvas/; the NPC asset is in its WGO scripts subfolder.
+        private static readonly string[] ResourcePaths = { "WGO scripts/npc_euric", "on_enter_ev_s_s25_gd_zone", "on_enter_ev_s_s34_gd_zone" };
         private static readonly string[] Texts = { "souls_s_s16_1_10", "souls_s_s25_14", "souls_s_s34_9" };
         private static readonly string[] Tasks = { "dlc_souls_s16_1", "dlc_souls_s25", "dlc_souls_s34_w8_day" };
         private static readonly List<WeakReference> InitialValuePorts = new List<WeakReference>();
@@ -20,7 +22,7 @@ namespace SoulDLCRebalance
         private static Action<string> Info, Failure;
         private static bool Enabled;
 
-        internal static void Install(Action<string> info, Action<string> failure)
+        internal static bool Install(Action<string> info, Action<string> failure)
         {
             Info = info; Failure = failure;
             try
@@ -38,7 +40,7 @@ namespace SoulDLCRebalance
                 GetQuestState = RequireMethod(R.GameType("KnownNPC"), "GetQuestState", false, typeof(string));
                 for (int i = 0; i < Graphs.Length; i++)
                 {
-                    object graph = GetGraph.Invoke(null, new object[] { Graphs[i] });
+                    object graph = GetGraph.Invoke(null, new object[] { ResourcePaths[i] });
                     ValidateGraph(graph, i, false);
                     object money = Activator.CreateInstance(MoneyNode);
                     GatherPorts.Invoke(money, null);
@@ -50,8 +52,9 @@ namespace SoulDLCRebalance
                     RequireMethod(RequireType("FlowCanvas.FlowGraph"), "OnGraphStarted", false), null, "GraphStarted", null);
                 Enabled = true;
                 Info("BSSR_EURIC_READY schedule=10/20/30/50 total=110");
+                return true;
             }
-            catch (Exception ex) { Disable("initialization", ex); }
+            catch (Exception ex) { Disable("initialization", ex); return false; }
         }
 
         private static void GraphStarted(object __instance)

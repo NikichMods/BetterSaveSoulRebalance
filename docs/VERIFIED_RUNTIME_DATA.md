@@ -4,6 +4,17 @@ This document records runtime facts the production mod is allowed to depend on. 
 
 ## Initialization
 
+- `CustomFlowScript.GetGraph(name)` requests `FlowCanvas/` plus `name` through
+  `SmartResourceHelper.GetResourceAs<FlowScript>`. The installed ResourceManager
+  maps Euric's dialogue to `flowcanvas/wgo scripts/npc_euric` (path ID 150524),
+  not `flowcanvas/npc_euric`. Pass `WGO scripts/npc_euric` to GetGraph; the graph's
+  own name is still `npc_euric`. The two treatment-zone assets are directly under
+  `flowcanvas/`, path IDs 150708 and 150709. Resource addresses and graph names
+  are distinct. `SmartResourceHelperPool.GetObject` caches even null lookups.
+  Evidence: actual 1.407 ResourceManager table and native loader IL, 2026-10-19;
+  1.2.0 runtime log demonstrates the missing wrong-path lookup. Installed success
+  of the corrected path remains a player-runtime acceptance check.
+
 - Better Save Soul availability is exposed through `DLCEngine.IsDLCSoulsAvailable()`.
 - Runtime balance data is available from `GameBalance.me`.
 - Technology definitions are read from `GameBalance.techs_data`.
